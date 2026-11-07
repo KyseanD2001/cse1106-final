@@ -3,23 +3,26 @@ Final project for Introduction to Computer Engineering.
 
 ## Raspberry Pi Health Monitor (Simplified)
 
-`health_monitor.c` now focuses on a smaller implementation using `stdio`, `unistd`, and `pigpio`.
+`health_monitor.c` is intentionally simplified and uses only:
+- `stdio.h`
+- `unistd.h`
+- `pigpio.h` (when available)
 
 It reports:
 - Memory usage percentage
 - Storage usage percentage
 - System status (`HEALTHY`, `WARNING`, `CRITICAL`)
-- LED status with explicit `ON/OFF` for Green/Yellow/Red
+- LED states (`ON/OFF`) for Green, Yellow, Red
 
 ### Build
 
-If `pigpio` is installed:
+With pigpio installed:
 
 ```bash
 gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor -lpigpio -lrt -lpthread
 ```
 
-If `pigpio` is not installed, it still compiles and prints metrics, but skips LED output:
+Without pigpio headers, it still compiles and prints status/percentages, but LED hardware output is skipped:
 
 ```bash
 gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor
@@ -31,12 +34,6 @@ gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor
 ./health_monitor
 ```
 
-Optional arguments:
+Optional:
 - `./health_monitor <threshold_percent>`
 - `./health_monitor <threshold_percent> <memory_percent> <storage_percent>`
-
-Example:
-
-```bash
-./health_monitor 75 82 61
-```
