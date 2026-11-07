@@ -1,18 +1,25 @@
 # cse1106-final
 Final project for Introduction to Computer Engineering.
 
-## Raspberry Pi Equipment Health Monitor (C)
+## Raspberry Pi Health Monitor (Simplified)
 
-This repository now includes `health_monitor.c`, a C program for Raspberry Pi 4B that:
-- obtains memory usage from `/proc/meminfo` and storage usage from `/`
-- can accept manual usage values through CLI arguments
-- calculates utilization percentages for memory and storage
-- compares utilization against a configurable warning threshold
-- prints `HEALTHY` or `WARNING` status
-- saves diagnostics to a file
-- controls 3 GPIO LEDs for status indication (green/yellow/red)
+`health_monitor.c` now focuses on a smaller implementation using `stdio`, `unistd`, and `pigpio`.
+
+It reports:
+- Memory usage percentage
+- Storage usage percentage
+- System status (`HEALTHY`, `WARNING`, `CRITICAL`)
+- LED status with explicit `ON/OFF` for Green/Yellow/Red
 
 ### Build
+
+If `pigpio` is installed:
+
+```bash
+gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor -lpigpio -lrt -lpthread
+```
+
+If `pigpio` is not installed, it still compiles and prints metrics, but skips LED output:
 
 ```bash
 gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor
@@ -24,20 +31,12 @@ gcc -Wall -Wextra -std=c11 health_monitor.c -o health_monitor
 ./health_monitor
 ```
 
-Useful options:
-- `--threshold <percent>` (default: `80`)
-- `--diag-file <path>` (default: `diagnostic_results.txt`)
-- `--mem-used-mb <n> --mem-total-mb <n>`
-- `--storage-used-mb <n> --storage-total-mb <n>`
-- `--no-led` (skip GPIO LED writes)
+Optional arguments:
+- `./health_monitor <threshold_percent>`
+- `./health_monitor <threshold_percent> <memory_percent> <storage_percent>`
 
-Example with custom threshold and manual values:
+Example:
 
 ```bash
-./health_monitor --threshold 70 --mem-used-mb 3000 --mem-total-mb 4000 --storage-used-mb 20000 --storage-total-mb 30000 --no-led
+./health_monitor 75 82 61
 ```
-
-GPIO pins used:
-- Green: BCM 17
-- Yellow: BCM 27
-- Red: BCM 22

@@ -8,6 +8,9 @@
 #define HAS_PIGPIO 0
 #endif
 
+extern FILE *popen(const char *command, const char *type);
+extern int pclose(FILE *stream);
+
 #define GREEN_LED_PIN 17
 #define YELLOW_LED_PIN 27
 #define RED_LED_PIN 22
