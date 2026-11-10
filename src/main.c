@@ -53,4 +53,21 @@ while(choice != 5)
 //Change room capacity
       printf("\nEnter New Capacity: ");
       scanf('%d", &maxCapacity);
+//Validate occupancy does not exceed new capacity
+      occupancy = updateOccupancy (occupancy, 0, maxCapacity);
+
+    else if(choice == 4)
+    {
+//Display room information
+      displayStatus(occupancy,maxCapacity);
+    }
+    else if(choice == 5)
+    {
+      printf("\nExiting Program...\n");
+    }
+    else
+    {
+      printf("\nInvalid Choice.\n");
+    }
+
 
