@@ -8,7 +8,7 @@ void displayStatus(
 )
 { 
   //Display current occupancy
-  printf("n\Current Occupancy: %d\n", occupancy);
+  printf("\nCurrent Occupancy: %d\n", occupancy);
 
   //Display room capacity
   printf("Maximum Capacity: %d\n", maxCapacity);
