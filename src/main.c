@@ -101,8 +101,24 @@ while(choice != 5)
     else if(choice == 3)
     {
 //Change room capacity
+    do
+    {
       printf("\nEnter New Capacity: ");
-      scanf("%d", &maxCapacity);
+      if(scanf("%d", &maxCapacity) != 1)
+      {
+          printf("\nInvalid input. Please enter a number.\n");
+
+          while(getchar() != '\n');
+
+          maxCapacity = -1;
+      }
+      else if(maxCapacity <= 0)
+      {
+        printf("\nCapacity must be greater than 0.\n");
+      }
+    } while(maxCapacity <= 0);
+
+        
 //Validate occupancy does not exceed new capacity
       occupancy = updateOccupancy (occupancy, 0, maxCapacity);
 
