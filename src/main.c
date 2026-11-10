@@ -137,7 +137,7 @@ while(choice != 5)
 
         case 5:
         {
-          print("\nExiting Program...\n");
+          printf("\nExiting Program...\n");
           break;
         }
 
