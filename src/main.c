@@ -26,8 +26,8 @@ while(choice != 5)
   {
     printf("\n SMART STUDY ROOM TRACKER BY KYSEAN AND DANIEL\n");
     printf("1. Student Entered\n");
-    printf("2. Student Entered\n");
-    printf("3. Student Entered\n");
-    printf("4. Student Entered\n");
-    printf("5. Student Entered\n");
+    printf("2. Student Left\n");
+    printf("3. Change Capacity\n");
+    printf("4. Display Status\n");
+    printf("5. Exit\n");
 
