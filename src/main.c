@@ -38,22 +38,24 @@ while(choice != 5)
 
     if(choice == 1)
     {
-    do
+      do
       {
         //Students enterd
-        printf("\nHow many students enterd: ");
+        printf("\nHow many students entered: ");
 
         if(scanf("%d", &numPeople) != 1)
         {
-          printf("\nInvalid input. Please enter a number.");
+          printf("\nInvalid input. Please enter a number.\n");
 
           while(getchar()!='\n');
           numPeople = -1;
         }
         else if(numPeople <= 0)
-          printf("\nPlease enter a positive number."); 
+        {
+          printf("\nPlease enter a positive number.\n"); 
+        }
           
-      }while(numPeople <= 0)
+      } while(numPeople <= 0);
 
       
       occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
@@ -62,6 +64,7 @@ while(choice != 5)
 
       displayStatus(occupancy,maxCapacity);
     }
+  
     else if(choice == 2)
     {
       do
