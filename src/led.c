@@ -49,5 +49,27 @@ void updateLED(
     gpioWrite(
       GREEN_LED_PIN, 1
       );
+//Turn Red LED off
+    gpioWrite(
+      RED_LED_PIN, 0
+    );
+  }
+}
+//Turn off LEDs and terminate pigpio
+void cleanupLED(void)
+{
+  //Turn Green LED off
+  gpioWrite(
+    GREEN_LED_PIN, 0
+  );
+//Turn RED LED off
+  gpioWrite(
+    RED_LED_PIN, 0
+  );
+//Shut down pigpio
+  gpioTerminate();
+}
+
+
 
     
