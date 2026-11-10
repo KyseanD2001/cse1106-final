@@ -13,10 +13,10 @@ int main(void)
   int occupancy = 0;
 
 //Maximum room capacity; can be changed if TA asks.
-  int maxCapacity = 5
+  int maxCapacity = 5;
 
 //User menu selection
-  int choice = 0
+  int choice = 0;
 
 //Initialize GPIO pins
 setupLED();
