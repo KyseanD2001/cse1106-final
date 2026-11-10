@@ -55,6 +55,7 @@ while(choice != 5)
       scanf('%d", &maxCapacity);
 //Validate occupancy does not exceed new capacity
       occupancy = updateOccupancy (occupancy, 0, maxCapacity);
+    }
 
     else if(choice == 4)
     {
@@ -69,5 +70,14 @@ while(choice != 5)
     {
       printf("\nInvalid Choice.\n");
     }
+
+//Update LEDs every loop
+    updateLED(occupancy,maxCapacity);
+    }
+// Turn off LEDS and release GPIO
+  cleanupLED()
+
+  return 0;
+  }
 
 
