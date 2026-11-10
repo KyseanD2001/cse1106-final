@@ -40,6 +40,8 @@ while(choice != 5)
       occupancy = updateOccupancy(occupancy,1, maxCapacity);
       //Log Event
       saveEvent("ENTER",occupancy);
+
+      displayStatus(occupancy,maxCapacity);
     }
     else if(choice == 2)
     {
@@ -47,6 +49,8 @@ while(choice != 5)
       occupancy = updateOccupancy(occupancy, -1, maxCapacity);
 //Log Event
       saveEvent("EXIT", occupancy);
+
+      displayStatus(occupancy,maxCapacity);
     }
     else if(choice == 3)
     {
@@ -55,6 +59,8 @@ while(choice != 5)
       scanf("%d", &maxCapacity);
 //Validate occupancy does not exceed new capacity
       occupancy = updateOccupancy (occupancy, 0, maxCapacity);
+
+      displayStatus(occupancy,maxCapacity);
     }
 
     else if(choice == 4)
