@@ -12,9 +12,9 @@ The program keeps track of how many students are in a room, displays the current
 
 Files:
 
-occupancy.c
-occupancy.h
-led.c
+occupancy.c,
+occupancy.h,
+led.c,
 led.h
 
 Responsibilities:
@@ -28,9 +28,9 @@ Responsibilities:
 
 Files:
 
-display.c
-display.h
-fileio.c
+display.c,
+display.h,
+fileio.c,
 fileio.h
 
 Responsibilities:
