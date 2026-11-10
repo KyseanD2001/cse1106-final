@@ -38,12 +38,23 @@ while(choice != 5)
 
     if(choice == 1)
     {
-    //Student entered room
-      printf("\nHow many students enterd: ");
-      scanf("%d", &numPeople);
-      
-      if(numPeople < 0)
-        numPeople = -numPeople;
+    do
+      {
+        //Students enterd
+        printf("\nHow many students enterd: ");
+
+        if(scanf("%d", &numPeople) != 1)
+        {
+          printf("\nInvalid input. Please enter a number.");
+
+          while(getchar()!='\n');
+          numPeople = -1;
+        }
+        else if(numPeople <= 0)
+          printf("\nPlease enter a positive number."); 
+          
+      }while(numPeople <= 0)
+
       
       occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
       //Log Event
@@ -53,14 +64,24 @@ while(choice != 5)
     }
     else if(choice == 2)
     {
-//Student left room
-      printf("\nHow many students left: ");
-      scanf("%d", &numPeople);
+      do
+      {
+        //Student left room
+        printf("\nHow many students left: ");
+
+        if(scanf("%d", &numPeople) != 1)
+        {
+          printf("\nInvalid input. Please enter a number.");
+
+          while(getchar()!='\n');
+          numPeople = -1;
+        }
+        else if(numPeople <= 0)
+          printf("\nPlease enter a positive number."); 
+          
+      }while(numPeople <= 0)
       
-      if(numPeople > 0)
-        numPeople = -numPeople;
-      
-      occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
+      occupancy = updateOccupancy(occupancy,-numPeople, maxCapacity);
 //Log Event
       saveEvent("EXIT", occupancy);
 
