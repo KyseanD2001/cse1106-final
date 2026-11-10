@@ -7,10 +7,13 @@ void displayStatus(
   int maxCapacity
 )
 { 
+  //Display current occupancy
   printf("n\Current Occupancy: %d\n", occupancy);
 
+  //Display room capacity
   printf("Maximum Capacity: %d\n", maxCapacity);
 
+  //Check if room is full
   if(occupancy >= maxCapacity)
   {
     printf("Room Status: FULL\n");
