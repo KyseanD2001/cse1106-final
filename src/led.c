@@ -1,1 +1,34 @@
+#include <pigpio.h>
+#include "led.h"
 
+//GPIO pin connect to Green LED
+#define GREEN_LED_PIN 17
+
+//GPIO pin connected to Red LED
+#define RED_LED_PIN 27
+
+// Initialize pigio and configure LED pins.
+
+void setupLED(void)
+{
+  gpioInitialise();
+
+//Configure Green LED pin as output
+  gpioSetMode(
+    GREEN_LED_PIN,
+    PI_OUTPUT
+  );
+//Configure Red LED pin as output
+  gpioSetMode(
+    RED_LED_PIN,
+    PI_OUTPUT
+  );
+}
+
+//update the LED status
+void updateLED(
+  int occupancy,
+  int maxCapacity
+)
+{
+  //Check if room is full
