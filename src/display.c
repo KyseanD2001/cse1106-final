@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "display.h"
 
-
+//Display room occupancy, room capacity, and room status.
 void displayStatus(
   int occupancy,
   int maxCapacity
