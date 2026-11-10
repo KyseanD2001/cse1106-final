@@ -23,5 +23,5 @@ int updateOccupancy(
   currentOccupancy = maxCapacity;
   }
 //Return validated occupancy count
-  return currentOccupancy
+  return currentOccupancy;
 }
