@@ -34,7 +34,13 @@ while(choice != 5)
     printf("5. Exit\n");
 
     printf("\nEnter Choice: ");
-    scanf("%d", &choice);
+    if(scanf("%d", &choice) !=1)
+      {
+        printf("\nInvalid input. Please enter a menu number.\n");
+        while(getchar() != '\n');
+
+        continue;
+    }
 
     if(choice == 1)
     {
@@ -74,15 +80,17 @@ while(choice != 5)
 
         if(scanf("%d", &numPeople) != 1)
         {
-          printf("\nInvalid input. Please enter a number.");
+          printf("\nInvalid input. Please enter a number.\n");
 
           while(getchar()!='\n');
           numPeople = -1;
         }
         else if(numPeople <= 0)
-          printf("\nPlease enter a positive number."); 
+        {
+          printf("\nPlease enter a positive number.\n"); 
+        }
           
-      }while(numPeople <= 0)
+      }while(numPeople <= 0);
       
       occupancy = updateOccupancy(occupancy,-numPeople, maxCapacity);
 //Log Event
