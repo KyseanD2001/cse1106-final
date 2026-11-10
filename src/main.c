@@ -31,3 +31,26 @@ while(choice != 5)
     printf("4. Display Status\n");
     printf("5. Exit\n");
 
+    printf("\nEnter Choice: ");
+    scanf("%d", &choice);
+
+    if(choice == 1)
+    {
+    //Student entered room
+      occupancy = updateOccupancy(occupancy,1, maxCapacity);
+      //Log Event
+      saveEvent("ENTER",occupancy);
+    }
+    else if(choice == 2)
+    {
+//Student left room
+      occupancy = updateOccupancy(occupancy, -1, maxCapacity);
+//Log Event
+      saveEvent("EXIT", occupancy);
+    }
+    else if(choice == 3)
+    {
+//Change room capacity
+      printf("\nEnter New Capacity: ");
+      scanf('%d", &maxCapacity);
+
