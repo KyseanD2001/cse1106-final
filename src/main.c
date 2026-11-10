@@ -10,4 +10,24 @@
 int main(void)
 {
   //Current number of students
-  int occupancy = 0
+  int occupancy = 0;
+
+//Maximum room capacity; can be changed if TA asks.
+  int maxCapacity = 5
+
+//User menu selection
+  int choice = 0
+
+//Initialize GPIO pins
+setupLED();
+
+//Run until user chooses Exit
+while(choice != 5)
+  {
+    printf("\n SMART STUDY ROOM TRACKER BY KYSEAN AND DANIEL\n");
+    printf("1. Student Entered\n");
+    printf("2. Student Entered\n");
+    printf("3. Student Entered\n");
+    printf("4. Student Entered\n");
+    printf("5. Student Entered\n");
+
