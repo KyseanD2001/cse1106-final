@@ -42,7 +42,113 @@ while(choice != 5)
         continue;
     }
 
-    if(choice == 1)
+    switch(choice)
+      {
+        case 1:
+        {
+          //Students entered room
+          do
+          {
+            printf("\nHow many students entered: ");
+              if(scanf("%d",&numPeople) != 1)
+              {
+                printf("\nInvalid input. Please enter a number.\n");
+                while(getchar() != '\n');
+                numPeople = -1;
+              }
+              else if(numPeople <= 0)
+              {
+                printf("\nPlease enter a postive number.\n");
+              }
+          } while(numPeople <= 0);
+          occupancy = updateOccupancy(occupancy, numPeople, maxCapacity);
+
+          //Log Event
+            saveEvent("ENTER", occupancy);
+
+            displayStatus(occupancy, maxCapacity);
+
+            break;
+        }
+        
+        case 2:
+        {
+          //Students left room
+          do
+          {
+            printf("\nHow many students left: ");
+              if(scanf("%d",&numPeople) != 1)
+              {
+                printf("\nInvalid input. Please enter a number.\n");
+                while(getchar() != '\n');
+                numPeople = -1;
+              }
+              else if(numPeople <= 0)
+              {
+                printf("\nPlease enter a postive number.\n");
+              }
+          } while(numPeople <= 0);
+          occupancy = updateOccupancy(occupancy, -numPeople, maxCapacity);
+
+          //Log Event
+            saveEvent("EXIT", occupancy);
+
+            displayStatus(occupancy, maxCapacity);
+
+            break;
+        }
+
+        case 3:
+        {
+          //Change room capacity
+          do
+          {
+            printf("\nEnter New Capacity: ");
+              if(scanf("%d",&maxCapacity) != 1)
+              {
+                printf("\nInvalid input. Please enter a number.\n");
+                while(getchar() != '\n');
+                maxCapacity = -1;
+              }
+              else if(maxCapacity <= 0)
+              {
+                printf("\nCapacity must be greater than 0.\n");
+              }
+          } while(maxCapacity <= 0);
+          //Ensures occupancy does not exceed new capacity
+          occupancy = updateOccupancy(occupancy, 0, maxCapacity);
+
+          //Log Event. I need to add a function when capacity is changed
+            //saveEvent("ENTER", occupancy);
+
+            displayStatus(occupancy, maxCapacity);
+
+            break;
+        }
+
+        case 4:
+        {
+          //Display room information
+         
+            displayStatus(occupancy, maxCapacity);
+
+            break;
+        }
+
+        case 5:
+        {
+          print("\nExiting Program...\n");
+          break;
+        }
+
+        default:
+        {
+            printf("\nInvalid Choice.\n");
+            break;
+        }
+      }
+
+    /*if(choice == 1)
     {
       do
       {
@@ -137,7 +243,7 @@ while(choice != 5)
     else
     {
       printf("\nInvalid Choice.\n");
-    }
+    }*/
 
 //Update LEDs every loop
     updateLED(occupancy,maxCapacity);
