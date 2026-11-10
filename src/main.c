@@ -52,7 +52,7 @@ while(choice != 5)
     {
 //Change room capacity
       printf("\nEnter New Capacity: ");
-      scanf('%d", &maxCapacity);
+      scanf("%d", &maxCapacity);
 //Validate occupancy does not exceed new capacity
       occupancy = updateOccupancy (occupancy, 0, maxCapacity);
     }
@@ -75,7 +75,7 @@ while(choice != 5)
     updateLED(occupancy,maxCapacity);
     }
 // Turn off LEDS and release GPIO
-  cleanupLED()
+  cleanupLED();
 
   return 0;
   }
