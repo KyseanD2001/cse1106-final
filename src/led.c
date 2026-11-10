@@ -32,3 +32,22 @@ void updateLED(
 )
 {
   //Check if room is full
+  if(occupancy >= maxCapacity)
+  {
+//Turn Green LED off
+    gpioWrite(
+      GREEN_LED_PIN, 0
+      );
+//Turn Red LED on
+    gpioWrite(
+      RED_LED_PIN, 1
+      );
+  }
+  else
+  {
+//Turn Green LED on
+    gpioWrite(
+      GREEN_LED_PIN, 1
+      );
+
+    
