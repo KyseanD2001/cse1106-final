@@ -18,6 +18,8 @@ int main(void)
 //User menu selection
   int choice = 0;
 
+  int numPeople;
+
 //Initialize GPIO pins
 setupLED();
 
@@ -37,7 +39,13 @@ while(choice != 5)
     if(choice == 1)
     {
     //Student entered room
-      occupancy = updateOccupancy(occupancy,1, maxCapacity);
+      printf("\nHow many students enterd: ");
+      scanf("%d", &numPeople);
+      
+      if(numPeople < 0)
+        numPeople = -numPeople;
+      
+      occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
       //Log Event
       saveEvent("ENTER",occupancy);
 
@@ -46,7 +54,13 @@ while(choice != 5)
     else if(choice == 2)
     {
 //Student left room
-      occupancy = updateOccupancy(occupancy, -1, maxCapacity);
+      printf("\nHow many students left: ");
+      scanf("%d", &numPeople);
+      
+      if(numPeople > 0)
+        numPeople = -numPeople;
+      
+      occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
 //Log Event
       saveEvent("EXIT", occupancy);
 
