@@ -8,6 +8,6 @@ void updateLED(
   int maxCapacity
 );
 
-void cleanUpLED(void);
+void cleanupLED(void);
 
 #endif
