@@ -18,7 +18,7 @@ int main(void)
 //User menu selection
   int choice = 0;
 
-  int numPeople;
+  int numPeople = 0;
 
 //Initialize GPIO pins
 setupLED();
