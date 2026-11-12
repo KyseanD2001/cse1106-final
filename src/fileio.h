@@ -4,6 +4,7 @@
 //Saves occupancy events to the log file
 void saveEvent(
   const char *eventType,
+  int numPeople,
   int occupancy
 );
 
