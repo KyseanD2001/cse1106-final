@@ -7,7 +7,7 @@ void saveEvent(
   const char *eventType,
   int numPeople,
   int occupancy
-);
+)
 {
   //Create file pointer
   FILE *file;
