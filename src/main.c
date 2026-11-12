@@ -172,7 +172,7 @@ while(choice != 5)
       
       occupancy = updateOccupancy(occupancy,numPeople, maxCapacity);
       //Log Event
-      saveEvent("ENTER",occupancy);
+      saveEvent("ENTER",numPeople,occupancy);
 
       displayStatus(occupancy,maxCapacity);
     }
@@ -200,7 +200,7 @@ while(choice != 5)
       
       occupancy = updateOccupancy(occupancy,-numPeople, maxCapacity);
 //Log Event
-      saveEvent("EXIT", occupancy);
+      saveEvent("EXIT", numPeople, occupancy);
 
       displayStatus(occupancy,maxCapacity);
     }
