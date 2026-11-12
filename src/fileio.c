@@ -5,8 +5,9 @@
 
 void saveEvent(
   const char *eventType,
+  int numPeople,
   int occupancy
-)
+);
 {
   //Create file pointer
   FILE *file;
@@ -17,8 +18,8 @@ void saveEvent(
 //Verify opened file successfully
   if(file != NULL)
   {
-//Write event and occupancy
-    fprintf(file, "%s,%d\n", eventType, occupancy);
+//Write event, occupancy, and max capacity
+    fprintf(file, "%s,%d,%d\n", eventType, occupancy, numPeople);
 
 //close file
     fclose(file);
